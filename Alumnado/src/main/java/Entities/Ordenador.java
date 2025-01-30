@@ -24,7 +24,7 @@ public class Ordenador {
     @Column(nullable=false )
     private LocalDate fechaSalida;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "ENUM('IntegerEL','AMD'')")
+    @Column(nullable = false, columnDefinition = "ENUM('INTEL','AMD')")
     private Procesador procesador;
     @OneToOne(mappedBy = "ordenador")
     private Alumno alumno;
