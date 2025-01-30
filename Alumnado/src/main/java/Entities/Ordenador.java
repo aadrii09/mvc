@@ -18,13 +18,13 @@ import jakarta.persistence.Table;
 public class Ordenador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(length=55, nullable=false)
     private String marca;
     @Column(nullable=false )
     private LocalDate fechaSalida;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "ENUM('INTEL','AMD'')")
+    @Column(nullable = false, columnDefinition = "ENUM('IntegerEL','AMD'')")
     private Procesador procesador;
     @OneToOne(mappedBy = "ordenador")
     private Alumno alumno;
@@ -39,7 +39,7 @@ public class Ordenador {
         this.alumno = alumno;
     }
 
-    public Ordenador(int id, String marca, LocalDate fechaSalida, Procesador procesador) {
+    public Ordenador(Integer id, String marca, LocalDate fechaSalida, Procesador procesador) {
         this.id = id;
         this.marca = marca;
         this.fechaSalida = fechaSalida;
@@ -52,7 +52,7 @@ public class Ordenador {
         this.procesador = procesador;
     }
 
-    public Ordenador(int id, String marca, LocalDate fechaSalida, Procesador procesador, Alumno alumno) {
+    public Ordenador(Integer id, String marca, LocalDate fechaSalida, Procesador procesador, Alumno alumno) {
         this.id = id;
         this.marca = marca;
         this.fechaSalida = fechaSalida;
@@ -60,11 +60,11 @@ public class Ordenador {
         this.alumno = alumno;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -103,3 +103,4 @@ public class Ordenador {
     
 
 }
+

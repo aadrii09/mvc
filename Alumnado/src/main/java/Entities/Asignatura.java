@@ -21,27 +21,27 @@ import jakarta.persistence.Table;
 public class Asignatura {
       @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(length=55, nullable=false)
     private String nombre;
     @Column(length=55, nullable=false)
-    private int creditos;
+    private Integer creditos;
     @Column(length=55, nullable=false)
-    private int horas;
+    private Integer horas;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "ENUM('OBLIGATORIA','OPCIONAL')")
     private Tipo tipo;
     
     
     @OneToMany(mappedBy = "asignatura", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Alumnoasignatura> lAlumnoasignaturas;
+    private List<AlumnoAsignatura> listaAlumnoasignaturas;
 
 
     public Asignatura() {
     }
 
 
-    public Asignatura(String nombre, int creditos, int horas, Tipo tipo) {
+    public Asignatura(String nombre, Integer creditos, Integer horas, Tipo tipo) {
       this.nombre = nombre;
       this.creditos = creditos;
       this.horas = horas;
@@ -49,16 +49,17 @@ public class Asignatura {
     }
 
 
-    public Asignatura(String nombre, int creditos, int horas, Tipo tipo, List<Alumnoasignatura> lAlumnoasignaturas) {
+    public Asignatura(String nombre, Integer creditos, Integer horas, Tipo tipo,
+        List<AlumnoAsignatura> listaAlumnoasignaturas) {
       this.nombre = nombre;
       this.creditos = creditos;
       this.horas = horas;
       this.tipo = tipo;
-      this.lAlumnoasignaturas = lAlumnoasignaturas;
+      this.listaAlumnoasignaturas = listaAlumnoasignaturas;
     }
 
 
-    public Asignatura(int id, String nombre, int creditos, int horas, Tipo tipo) {
+    public Asignatura(Integer id, String nombre, Integer creditos, Integer horas, Tipo tipo) {
       this.id = id;
       this.nombre = nombre;
       this.creditos = creditos;
@@ -67,23 +68,23 @@ public class Asignatura {
     }
 
 
-    public Asignatura(int id, String nombre, int creditos, int horas, Tipo tipo,
-        List<Alumnoasignatura> lAlumnoasignaturas) {
+    public Asignatura(Integer id, String nombre, Integer creditos, Integer horas, Tipo tipo,
+        List<AlumnoAsignatura> listaAlumnoasignaturas) {
       this.id = id;
       this.nombre = nombre;
       this.creditos = creditos;
       this.horas = horas;
       this.tipo = tipo;
-      this.lAlumnoasignaturas = lAlumnoasignaturas;
+      this.listaAlumnoasignaturas = listaAlumnoasignaturas;
     }
 
 
-    public int getId() {
+    public Integer getId() {
       return id;
     }
 
 
-    public void setId(int id) {
+    public void setId(Integer id) {
       this.id = id;
     }
 
@@ -98,22 +99,22 @@ public class Asignatura {
     }
 
 
-    public int getCreditos() {
+    public Integer getCreditos() {
       return creditos;
     }
 
 
-    public void setCreditos(int creditos) {
+    public void setCreditos(Integer creditos) {
       this.creditos = creditos;
     }
 
 
-    public int getHoras() {
+    public Integer getHoras() {
       return horas;
     }
 
 
-    public void setHoras(int horas) {
+    public void setHoras(Integer horas) {
       this.horas = horas;
     }
 
@@ -128,14 +129,17 @@ public class Asignatura {
     }
 
 
-    public List<Alumnoasignatura> getlAlumnoasignaturas() {
-      return lAlumnoasignaturas;
+    public List<AlumnoAsignatura> getListaAlumnoasignaturas() {
+      return listaAlumnoasignaturas;
     }
 
 
-    public void setlAlumnoasignaturas(List<Alumnoasignatura> lAlumnoasignaturas) {
-      this.lAlumnoasignaturas = lAlumnoasignaturas;
+    public void setListaAlumnoasignaturas(List<AlumnoAsignatura> listaAlumnoasignaturas) {
+      this.listaAlumnoasignaturas = listaAlumnoasignaturas;
     }
+
+
+    
 
 
     

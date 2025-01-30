@@ -24,7 +24,7 @@ import jakarta.persistence.Table;
 public class Alumno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(length=55, nullable=false)
     private String nombre;
     @Column(length=55, nullable=false)
@@ -35,11 +35,11 @@ public class Alumno {
     @Column(nullable = false, columnDefinition = "ENUM('PRIMERO','SEGUNDO','TERCERO','CUARTO')")
     private Curso curso;
     @OneToOne
-    @JoinColumn(name="ordenador_id")
+    @JoinColumn(name="ordenador_id",referencedColumnName = "id")
     private Ordenador ordenador;
     
     @OneToMany(mappedBy = "alumno", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Alumnoasignatura> listaAlumnoasignaturas;
+    private List<AlumnoAsignatura> listaAlumnoasignaturas;
 
     public Alumno() {
     }
@@ -53,7 +53,7 @@ public class Alumno {
     }
 
     public Alumno(String nombre, String apellido, LocalDate fechaCumpl, Curso curso, Ordenador ordenador,
-            List<Alumnoasignatura> listaAlumnoasignaturas) {
+            List<AlumnoAsignatura> listaAlumnoasignaturas) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaCumpl = fechaCumpl;
@@ -62,7 +62,7 @@ public class Alumno {
         this.listaAlumnoasignaturas = listaAlumnoasignaturas;
     }
 
-    public Alumno(int id, String nombre, String apellido, LocalDate fechaCumpl, Curso curso, Ordenador ordenador) {
+    public Alumno(Integer id, String nombre, String apellido, LocalDate fechaCumpl, Curso curso, Ordenador ordenador) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -71,8 +71,8 @@ public class Alumno {
         this.ordenador = ordenador;
     }
 
-    public Alumno(int id, String nombre, String apellido, LocalDate fechaCumpl, Curso curso, Ordenador ordenador,
-            List<Alumnoasignatura> listaAlumnoasignaturas) {
+    public Alumno(Integer id, String nombre, String apellido, LocalDate fechaCumpl, Curso curso, Ordenador ordenador,
+            List<AlumnoAsignatura> listaAlumnoasignaturas) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -82,11 +82,11 @@ public class Alumno {
         this.listaAlumnoasignaturas = listaAlumnoasignaturas;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -130,14 +130,16 @@ public class Alumno {
         this.ordenador = ordenador;
     }
 
-    public List<Alumnoasignatura> getListaAlumnoasignaturas() {
+    public List<AlumnoAsignatura> getListaAlumnoasignaturas() {
         return listaAlumnoasignaturas;
     }
 
-    public void setListaAlumnoasignaturas(List<Alumnoasignatura> listaAlumnoasignaturas) {
+    public void setListaAlumnoasignaturas(List<AlumnoAsignatura> listaAlumnoasignaturas) {
         this.listaAlumnoasignaturas = listaAlumnoasignaturas;
     }
 
+
+    
     
 
 }
