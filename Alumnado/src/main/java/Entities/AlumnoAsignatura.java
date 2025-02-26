@@ -28,6 +28,10 @@ public class AlumnoAsignatura {
 
 
 
+    public AlumnoAsignatura() {
+    }
+
+
     public AlumnoAsignatura(Integer id, Alumno alumno, Asignatura asignatura, LocalDate fechaExamen, Double nota) {
         this.id = id;
         this.alumno = alumno;
