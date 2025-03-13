@@ -14,6 +14,7 @@
             <th>Apellido</th>
             <th>Edad</th>
             <th>Eliminar</th>
+            <th>Media</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,8 @@
             <td th:text="${alumno.edad}"></td>
             <td>
                 <a th:href="@{/alumnado/delete/{id}(id=${alumno.id})}">Eliminar</a>
+            </td>
+            <td th:text="${avgGrades[alumno.id] != null ? avgGrades[alumno.id] : 'Sin notas'}"></td>
         </tr>
     </tbody>
 </table>
