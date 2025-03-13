@@ -1,6 +1,7 @@
 package Colegio.model.Services.ServiceImpl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,23 @@ public class AlumnoServiceImpl implements IAlumnoService {
     @Override
     public void deleteAlumno(Long id) {
         AlumnoRepo.deleteById(id);
+    }
+    @Override
+    public Alumno saveAlumno(Alumno alumno) {
+        return AlumnoRepo.save(alumno);
+    }
+    @Override
+    public Alumno updateAlumno(Alumno alumno) {
+        return AlumnoRepo.save(alumno);
+    }
+    @Override
+    public Alumno findAlumnoById(Long id) {
+        Optional<Alumno> optionalAlumno = AlumnoRepo.findById(id);
+        if (optionalAlumno.isPresent()) {
+            return optionalAlumno.get();
+        } else {
+            return null;
+        }
     }
 
     

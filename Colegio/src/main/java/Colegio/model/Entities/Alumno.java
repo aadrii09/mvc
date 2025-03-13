@@ -3,6 +3,7 @@ package Colegio.model.Entities;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -26,7 +27,7 @@ public class Alumno {
     private String apellidos;
     @Column(nullable = false)
     private int edad;
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany(mappedBy = "idAlumno", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Matricula> matriculas;
     public Alumno() {

@@ -10,4 +10,9 @@ public interface IAlumnoService  {
     Long findAlumnosCount();
     List<Alumno> findAlumnosEdades();
     void deleteAlumno(Long id);
+
+    public Alumno saveAlumno(Alumno alumno);
+    public Alumno updateAlumno(Alumno alumno);
+    public Alumno findAlumnoById(Long id);
+    
 }

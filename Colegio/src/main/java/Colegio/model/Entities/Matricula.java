@@ -2,6 +2,7 @@ package Colegio.model.Entities;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -20,11 +21,11 @@ public class Matricula {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @JsonIgnore
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Alumno.class)
     @JoinColumn(nullable = false, name = "idAlumno")
     private Alumno idAlumno;
-    @JsonIgnore
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Asignatura.class)
     @JoinColumn(nullable = false, name = "idAsignatura")
     private Asignatura idAsignatura;
