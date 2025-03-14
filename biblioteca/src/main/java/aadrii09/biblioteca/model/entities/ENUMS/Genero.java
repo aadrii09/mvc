@@ -6,4 +6,5 @@ public enum Genero {
     FANTASÍA,   
     HISTORIA,
     MISTERIO;
+
 }

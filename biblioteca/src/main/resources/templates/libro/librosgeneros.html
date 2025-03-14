@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Libros por Género</title>
+</head>
+<body>
+    <h1>Buscar Libros por Género</h1>
+    <form action="#" th:action="@{/libros}" method="get">
+        <label for="genero">Género:</label>
+        <select id="genero" name="genero">
+            <option value="">-- Seleccione un género --</option>
+            <option value="FICCIÓN">FICCIÓN</option>
+            <option value="CIENCIA_FICCIÓN">CIENCIA FICCIÓN</option>
+            <option value="FANTASÍA">FANTASÍA</option>
+            <option value="HISTORIA">HISTORIA</option>
+            <option value="MISTERIO">MISTERIO</option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+    
+    <div th:if="${libros}">
+        <h2>Resultados:</h2>
+        <ul>
+            <li th:each="libro : ${libros}">
+                <strong th:text="${libro.titulo}">Título</strong>
+                - <span th:text="${libro.autor}">Autor</span>
+                (Género: <span th:text="${libro.genero}">Género</span>)
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
