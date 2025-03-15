@@ -10,7 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import aadrii09.rocketLeague.model.entities.Jugador;
 import aadrii09.rocketLeague.model.services.service.IJugadorService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -31,6 +35,19 @@ public class JugadorController {
         jugadorService.deleteJugador(id);
         return "redirect:/jugadorController/all";
     }   
+
+    @GetMapping("/form")
+    public String showForm(Model model) {
+    // Crear un objeto Jugador vacío para el formulario
+    model.addAttribute("jugador", new Jugador());
+    return "jugador/form";
+}
+    @PostMapping("/save")
+    public String saveJugador(@ModelAttribute Jugador jugador) {
+    jugadorService.saveJugador(jugador);
+    return "redirect:/jugadorController/all";
+}
+
     
 
 }
