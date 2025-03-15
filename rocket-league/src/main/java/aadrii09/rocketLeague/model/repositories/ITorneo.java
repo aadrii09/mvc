@@ -1,5 +1,12 @@
 package aadrii09.rocketLeague.model.repositories;
 
-public class ITorneo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import aadrii09.rocketLeague.model.entities.Torneo;
+
+public interface ITorneo extends JpaRepository<Torneo, Long> {
+    
+    
+
     
 }

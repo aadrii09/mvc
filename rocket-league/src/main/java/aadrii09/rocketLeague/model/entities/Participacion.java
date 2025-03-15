@@ -21,24 +21,24 @@ public class Participacion {
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Jugador.class)
     @JoinColumn(nullable = false, name = "jugadorId")
-    private Long jugadorId;
+    private Jugador jugadorId;
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Torneo.class)
     @JoinColumn(nullable = false, name = "torneoId")
-    private Long torneoId;
+    private Torneo torneoId;
     @Column(nullable = false, length = 50)
     private Integer posicionFinal;
 
     public Participacion() {
     }
 
-    public Participacion(Long jugadorId, Long torneoId, Integer posicionFinal) {
+    public Participacion(Jugador jugadorId, Torneo torneoId, Integer posicionFinal) {
         this.jugadorId = jugadorId;
         this.torneoId = torneoId;
         this.posicionFinal = posicionFinal;
     }
 
-    public Participacion(Long id, Long jugadorId, Long torneoId, Integer posicionFinal) {
+    public Participacion(Long id, Jugador jugadorId, Torneo torneoId, Integer posicionFinal) {
         this.id = id;
         this.jugadorId = jugadorId;
         this.torneoId = torneoId;
@@ -53,19 +53,19 @@ public class Participacion {
         this.id = id;
     }
 
-    public Long getJugadorId() {
+    public Jugador getJugadorId() {
         return jugadorId;
     }
 
-    public void setJugadorId(Long jugadorId) {
+    public void setJugadorId(Jugador jugadorId) {
         this.jugadorId = jugadorId;
     }
 
-    public Long getTorneoId() {
+    public Torneo getTorneoId() {
         return torneoId;
     }
 
-    public void setTorneoId(Long torneoId) {
+    public void setTorneoId(Torneo torneoId) {
         this.torneoId = torneoId;
     }
 
@@ -76,5 +76,7 @@ public class Participacion {
     public void setPosicionFinal(Integer posicionFinal) {
         this.posicionFinal = posicionFinal;
     }
+
+    
     
 }
