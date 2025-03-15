@@ -31,6 +31,28 @@ public class JugadorServiceImpl implements IJugadorService {
         return jugadorRepo.findAll();
     }
 
+    @Override
+    public Jugador saveJugador(Jugador jugador) {
+        return jugadorRepo.save(jugador);
+    }
+
+    @Override
+    public void deleteJugador(Long id) {
+        jugadorRepo.deleteById(id);
+    }
+
+    @Override
+    public Jugador updateJugador(Jugador jugador) {
+        return jugadorRepo.save(jugador);
+    }
+
+    @Override
+    public Jugador findByNombre(String nombre) {
+        return jugadorRepo.findByNombre(nombre);
+    }
+
+   
+
   
     
     

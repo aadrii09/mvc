@@ -8,8 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import aadrii09.rocketLeague.model.entities.Jugador;
 import aadrii09.rocketLeague.model.services.service.IJugadorService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
+
 
 
 @RestController
@@ -25,6 +32,22 @@ public class JugadorRestController {
     @GetMapping("/all")
     public List<Jugador> findAll(){
         return jugadorService.findAll();
-    
     }
-}
+    @PostMapping("/save")
+    public Jugador saveJugador(@RequestBody Jugador jugador){
+        return jugadorService.saveJugador(jugador);
+    }
+    @DeleteMapping("/delete/{id}")
+    public void deleteJugador(@PathVariable("id") Long id){
+        jugadorService.deleteJugador(id);
+    }
+    @PutMapping("update/{id}")
+    public Jugador updateJugador(@RequestBody Jugador jugador) {
+        return jugadorService.updateJugador(jugador);
+    }
+    @GetMapping("/nombre/{nombre}")
+    public Jugador findByNombre(@PathVariable("nombre") String nombre) {
+        return jugadorService.findByNombre(nombre);
+    } 
+    
+}  
