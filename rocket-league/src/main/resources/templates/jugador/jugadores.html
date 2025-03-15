@@ -66,6 +66,10 @@
                                     <a class="btn btn-sm btn-info" th:href="@{'/jugadorController/detalle/' + ${jugador.id}}">
                                         <i class="fas fa-eye"></i>
                                     </a>
+                                    <a class="btn btn-sm btn-warning" 
+                                       th:href="@{/jugadorController/update(id=${jugador.id})}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <a class="btn btn-sm btn-danger" 
                                        th:href="@{/jugadorController/delete(id=${jugador.id})}"
                                        onclick="return confirm('¿Estás seguro de eliminar este jugador?');">
