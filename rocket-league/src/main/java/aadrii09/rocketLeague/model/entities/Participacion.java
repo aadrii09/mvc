@@ -1,5 +1,8 @@
 package aadrii09.rocketLeague.model.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
@@ -18,10 +21,12 @@ public class Participacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Jugador.class)
     @JoinColumn(nullable = false, name = "jugadorId")
     private Jugador jugadorId;
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Torneo.class)
     @JoinColumn(nullable = false, name = "torneoId")

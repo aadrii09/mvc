@@ -2,6 +2,9 @@ package aadrii09.rocketLeague.model.entities;
 
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import aadrii09.rocketLeague.model.entities.Enum.Rango;
@@ -30,9 +33,11 @@ public class Jugador {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "ENUM('BRONCE', 'PLATA', 'ORO', 'PLATINO', 'DIAMANTE', 'CAMPEON', 'GRAN_CAMPEON', 'SSL')")
     private Rango rango;
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonManagedReference
-    @OneToMany(mappedBy="jugadorId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy="jugadorId", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     List<Participacion> participaciones;
+    
 
     public Jugador() {
     }

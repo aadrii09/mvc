@@ -3,6 +3,9 @@ package aadrii09.rocketLeague.model.entities;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -27,6 +30,7 @@ public class Torneo {
     private LocalDate fechaInicio;
     @Column(nullable = false, length = 50)
     private Integer premioTotal;
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonManagedReference
     @OneToMany(mappedBy="torneoId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     List<Participacion> participaciones;

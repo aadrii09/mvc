@@ -120,6 +120,12 @@ public class Libro {
     public void setPrestamos(List<Prestamo> prestamos) {
         this.prestamos = prestamos;
     }
+
+    @Override
+    public String toString() {
+        return "Libro [id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", fecha_publicacion="
+                + fecha_publicacion + ", genero=" + genero + ", prestamos=" + prestamos + "]";
+    }
     
     
 }

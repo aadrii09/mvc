@@ -18,13 +18,12 @@ import aadrii09.biblioteca.model.services.service.ILibroService;
 public class LibroController {
      @Autowired
     private ILibroService libroService;
-
+    
     @GetMapping("/librosgeneros")
     public String getLibrosByGenero(Model model) {
- 
-        List<Libro> libros = libroService.getLibrosByGenero();
-        
+        List<Libro> libros = libroService.getLibrosByGenero(); 
         model.addAttribute("libros", libros);
+        model.addAttribute("librosCount", libroService.findLibrosCount());
         return "libro/librosgeneros"; 
     }
     

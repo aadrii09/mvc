@@ -16,9 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-
-
-
 @Controller
 @RequestMapping("/jugadorController")
 public class JugadorController {

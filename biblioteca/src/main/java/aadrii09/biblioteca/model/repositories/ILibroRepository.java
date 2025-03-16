@@ -10,6 +10,6 @@ import aadrii09.biblioteca.model.entities.Libro;
 import aadrii09.biblioteca.model.entities.ENUMS.Genero;
 
 public interface ILibroRepository extends JpaRepository <Libro, Long> {
-    
+// Consulta para filtrar libros por genero
 List<Libro> findByGenero(Genero genero);
 }
