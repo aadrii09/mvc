@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE PELICULAS</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>GENERO</th>
+                <th>DIRECTOR</th>
+                <th>DURACION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pelicula : ${peliculas}">
+                <td th:text="${pelicula.id}"></td>
+                <td th:text="${pelicula.titulo}"></td>
+                <td th:text="${pelicula.genero}"></td>
+                <td th:text="${pelicula.director}"></td>
+                <td th:text="${pelicula.duracion}"></td>
+            </tr>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>GENERO</th>
+                <th>DIRECTOR</th>
+                <th>DURACION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pelicula : ${peliculaDuracion}">
+                <td th:text="${pelicula.id}"></td>
+                <td th:text="${pelicula.titulo}"></td>
+                <td th:text="${pelicula.genero}"></td>
+                <td th:text="${pelicula.director}"></td>
+                <td th:text="${pelicula.duracion}"></td>
+            </tr>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <hr>
+    <p th:text="${peliculaGeneros}"></p>
+</body>
+</html>
